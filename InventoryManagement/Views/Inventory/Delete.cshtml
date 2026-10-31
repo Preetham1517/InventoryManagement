@@ -1,0 +1,30 @@
+﻿@model InventoryManagement.Models.Inventory
+
+@{
+    ViewBag.Title = "Delete Product";
+}
+
+<h2>Delete Product</h2>
+
+<h4>Are you sure you want to delete this product?</h4>
+
+<div>
+    <p><strong>Product Name:</strong> @Model.ProductName</p>
+    <p><strong>Quantity:</strong> @Model.Quantity</p>
+    <p><strong>Price:</strong> @Model.Price</p>
+</div>
+
+@using (Html.BeginForm("Delete", "Inventory", new { id = Model.ProductID }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+
+<button type = "submit" class="btn btn-danger">Confirm Delete</button>
+
+
+}
+
+<br />
+<br />
+
+@Html.ActionLink("Cancel", "Index")

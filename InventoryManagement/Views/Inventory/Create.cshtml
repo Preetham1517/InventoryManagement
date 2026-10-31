@@ -1,0 +1,39 @@
+﻿@model InventoryManagement.Models.Inventory
+
+@{
+    ViewBag.Title = "Add New Product";
+}
+
+<h2>Add New Product</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ProductName)
+        @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ProductName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Quantity)
+        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Quantity)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Price)
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Save Product</button>
+
+}
+
+<br />
+
+@Html.ActionLink("Back to Inventory", "Index")
